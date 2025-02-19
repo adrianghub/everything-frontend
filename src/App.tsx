@@ -6,7 +6,9 @@ const App = () => {
     <div>
       <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <h1 className="text-xl font-bold">🚀 Rick and Morty - Fan Service</h1>
+          <h1 className="text-xl font-bold">
+            🚀 Rick and Morty - Fan Service {__APP_VERSION__} - {import.meta.env.MODE}
+          </h1>
           <BookmarksIndicator />
           {/* <Suspense fallback={<div className="animate-pulse">Loading weather...</div>}>
             <WeatherWidget />
