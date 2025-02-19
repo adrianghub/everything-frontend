@@ -34,6 +34,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_ENVIRONMENT: STAGE
 
       - name: Deploy to AWS Amplify
         uses: ./.github/actions/aws-amplify-deploy
