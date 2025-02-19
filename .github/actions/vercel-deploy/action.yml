@@ -11,7 +11,7 @@ inputs:
   mode:
     description: 'Deployment mode'
     required: false
-    default: 'production'
+    default: 'develop'
 
 runs:
   using: 'composite'
@@ -20,15 +20,15 @@ runs:
       shell: bash
       run: npm install --global vercel@canary
 
-    - name: PROD Vercel Deployment
-      if: ${{ inputs.mode == 'production' }}
+    - name: DEV Vercel Deployment
+      if: ${{ inputs.mode == 'develop' }}
       run: |
         vercel pull --yes --environment=production --token=${{ inputs.vercel-token }}
         vercel build --prod --token=${{ inputs.vercel-token }}
         vercel deploy --prebuilt --prod --token=${{ inputs.vercel-token }}
       shell: bash
       env:
-        VITE_ENVIRONMENT: PROD
+        VITE_ENVIRONMENT: DEV
 
     - name: PREVIEW Vercel Deployment
       if: ${{ inputs.mode == 'preview' }}
