@@ -9,6 +9,9 @@ inputs:
     description: 'Bundle directory'
     required: false
     default: 'dist'
+  cloudfront-distribution-id:
+    description: 'CloudFront distribution ID'
+    required: true
 
 runs:
   using: 'composite'
@@ -23,5 +26,5 @@ runs:
       shell: bash
 
     - name: Invalidate CloudFront Cache
-      run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+      run: aws cloudfront create-invalidation --distribution-id ${{ inputs.cloudfront-distribution-id }} --paths "/*"
       shell: bash
