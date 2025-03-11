@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: https://d2ce7w6dox9cdp.cloudfront.net
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
