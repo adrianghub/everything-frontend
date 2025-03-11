@@ -16,7 +16,7 @@ runs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4.1.0
       with:
-        aws-region: 'eu-central-1'
+        aws-region: 'eu-north-1'
 
     - name: Sync S3 bucket
       run: aws s3 sync ${{ inputs.bundle-dir }} s3://${{ inputs.bucket-name }}
